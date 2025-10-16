@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Reminder</title>
+    <style>
+        body {
+            
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .email-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .header {
+            background-color: #282828;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #333333;
+        }
+        .header h1 {
+            color: #f5a623;
+            margin: 0;
+        }
+        .content {
+            padding: 20px;
+        }
+        
+        .footer {
+            text-align: center;
+            border-top: 1px solid #333333;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #282828;
+            color: #777777;
+        }
+        .content p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #cccccc;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>We Miss You!</h1>
+        </div>
+        <div class="content">
+            <p>Hello <strong>{{ user_name }}</strong>,</p>
+            <p>One of our most valuable customer.</p>
+            <p>
+                It's been over 24 hours we haven't seen you over ServiceSync. 
+                We are always here for you. To make your homes a better place to live. 
+            </p>
+
+            <img style="width: 200px;" src="http://127.0.0.1:5000/uploads/Entry.png" alt="">
+
+            <p>
+                Don't miss out the lates service professionals on-boarding. Soon we will be realsing out new and exiting offers just for you.
+            </p>
+            
+        </div>
+        <div class="footer">
+            <p>Team - ServiceSync India.</p>
+            <p>For any queries, contact us at support@servicesync.in</p>
+        </div>
+    </div>
+</body>
+</html>

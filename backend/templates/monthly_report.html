@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Activity Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #090101;
+            margin: 5px;
+            padding: 0;
+            color: azure;
+        }
+
+        .container {
+            width: 60%;
+            margin: 25px auto;
+        }
+
+        .card {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card.green {
+            background-color: #d4edda; /* Green for completed */
+            border-color: #c3e6cb;
+        }
+
+        .card.red {
+            background-color: #f8d7da; /* Red for rejected */
+            border-color: #f5c6cb;
+        }
+
+        .card.white {
+            background-color: #ffffff; /* Default for pending/other */
+            border-color: #ddd;
+        }
+
+        .card h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .card p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .total {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Monthly Activity Report</h1>
+        <p>Dear {{ customer_name }},</p>
+        <p>Here are the details of your bookings from the last month: P.F.A.</p>
+
+        {% for booking in booking_details %}
+        <div class="card 
+            {% if booking.status == 'completed' %}green{% elif booking.status == 'rejected' %}red{% else %}white{% endif %}">
+            <h3>{{ booking.service_name }}</h3>
+            <p><strong>Professional Name:</strong> {{ booking.professional_name }}</p>
+            <p><strong>Service Date:</strong> {{ booking.service_date.strftime('%Y-%m-%d') }}</p>
+            <p><strong>Service Time:</strong> {{ booking.service_time }}</p>
+            <p><strong>Status:</strong> {{ booking.status }}</p>
+            <p><strong>Booking Charge:</strong> ₹{{ booking.booking_charge }}</p>
+        </div>
+        {% endfor %}
+
+        <p class="total">Total Amount spent : ₹{{ total_amount }}</p>
+        <img style="width: 200px;" src="http://127.0.0.1:5000/uploads/Entry.png" alt="">
+        <span><p>Thanks for using ServiceSync</p>
+        <p>- Team <strong> ServiceSync India. </strong></p></span>
+    </div>
+</body>
+</html>
